@@ -47,8 +47,8 @@
               </menus>
             </MenuBar>
             <Button layoutX="936.0" layoutY="780.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Finalize" />
-            <Button layoutX="626.0" layoutY="780.0" mnemonicParsing="false" text="Prev" />
-            <Button layoutX="704.0" layoutY="780.0" mnemonicParsing="false" text="Next" />
+            <Button fx:id="prevButton" layoutX="626.0" layoutY="780.0" mnemonicParsing="false" text="Prev" />
+            <Button fx:id="nextButton" layoutX="704.0" layoutY="780.0" mnemonicParsing="false" text="Next" />
             <Button layoutX="164.0" layoutY="780.0" mnemonicParsing="false" text="Audio" />
             <ScrollPane layoutX="-51.0" layoutY="35.0" prefHeight="798.0" prefWidth="212.0">
               <content>
@@ -82,7 +82,7 @@
             <Label layoutX="592.0" layoutY="499.0" text="Storyboard # - Storyboard 1" />
             <Accordion layoutX="173.0" layoutY="111.0">
               <panes>
-                <TitledPane animated="false" text="CHARACTER">
+                <TitledPane fx:id="characterIconBox" animated="false" text="CHARACTER">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                   </content>
@@ -128,7 +128,7 @@
                   </Button>
               </items>
             </ToolBar>
-            <ScrollPane layoutX="174.0" layoutY="461.0" prefHeight="200.0" prefWidth="200.0">
+            <ScrollPane fx:id="characterPictureBox" layoutX="174.0" layoutY="461.0" prefHeight="200.0" prefWidth="200.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
               </content>
