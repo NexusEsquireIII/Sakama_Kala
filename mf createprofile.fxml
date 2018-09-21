@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="logIn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="740.0" style="-fx-background-color: #4affbd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateProfileController">
+   <children>
+      <TextField fx:id="companyNumber" layoutX="444.0" layoutY="312.0" prefHeight="31.0" prefWidth="211.0" promptText="Enter your company number" />
+      <TextField fx:id="companyName" layoutX="444.0" layoutY="256.0" prefHeight="31.0" prefWidth="211.0" promptText="Enter your company name" />
+      <TextField fx:id="userName" layoutX="444.0" layoutY="205.0" prefHeight="31.0" prefWidth="211.0" promptText="Enter your username" />
+      <TextField fx:id="firstName" layoutX="117.0" layoutY="205.0" prefHeight="31.0" prefWidth="211.0" promptText="Enter your first name" />
+      <TextField fx:id="lastname" layoutX="117.0" layoutY="256.0" onMouseClicked="#connect" prefHeight="31.0" prefWidth="211.0" promptText="Enter last name" />
+      <TextField fx:id="mobileNumber" layoutX="117.0" layoutY="312.0" prefHeight="31.0" prefWidth="211.0" promptText="Enter mobile number" />
+      <TextField fx:id="Email" layoutX="117.0" layoutY="368.0" prefHeight="31.0" prefWidth="211.0" promptText="Enter your email" />
+      <TextField fx:id="Pword" layoutX="444.0" layoutY="368.0" prefHeight="31.0" prefWidth="211.0" promptText="Enter your password" />
+      <Button fx:id="create" layoutX="518.0" layoutY="423.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: #ff8d29;" text="Create" textFill="WHITE" />
+      <Button layoutX="162.0" layoutY="430.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: #ff8d29;" text="Cancel" textFill="WHITE" />
+      <ImageView fitHeight="181.0" fitWidth="310.0" layoutX="226.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Desktop/logo.JPG" />
+         </image>
+      </ImageView>
+      <Label fx:id="error" layoutX="364.0" layoutY="435.0" text="Label" textFill="RED" visible="false" />
+   </children>
+</AnchorPane>
