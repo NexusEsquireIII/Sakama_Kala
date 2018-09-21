@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="833.0" prefWidth="1052.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TilePane layoutX="148.0" layoutY="131.0" prefHeight="229.0" prefWidth="228.0">
+         <children>
+            <ImageView fitHeight="228.0" fitWidth="563.0" pickOnBounds="true" preserveRatio="true" TilePane.alignment="CENTER">
+               <image>
+                  <Image url="@../../Images/TemplateImages/film-camera-alt-512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </TilePane>
+      <Label alignment="CENTER" graphicTextGap="20.0" layoutX="177.0" layoutY="360.0" prefHeight="37.0" prefWidth="170.0" text="Film" textAlignment="CENTER" />
+      <TilePane layoutX="692.0" layoutY="131.0" prefHeight="229.0" prefWidth="214.0">
+         <children>
+            <ImageView fitHeight="228.0" fitWidth="563.0" pickOnBounds="true" preserveRatio="true" TilePane.alignment="CENTER">
+               <image>
+                  <Image url="@../../Images/TemplateImages/5-512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </TilePane>
+      <Label alignment="CENTER" graphicTextGap="20.0" layoutX="721.0" layoutY="360.0" prefHeight="37.0" prefWidth="170.0" text="Theater" textAlignment="CENTER" />
+      <TilePane layoutX="148.0" layoutY="437.0" prefHeight="229.0" prefWidth="214.0">
+         <children>
+            <ImageView fitHeight="228.0" fitWidth="563.0" pickOnBounds="true" preserveRatio="true" TilePane.alignment="CENTER">
+               <image>
+                  <Image url="@../../Images/TemplateImages/Speach-Bubble_Comic-512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </TilePane>
+      <Label alignment="CENTER" graphicTextGap="20.0" layoutX="177.0" layoutY="666.0" prefHeight="37.0" prefWidth="170.0" text="Comic" textAlignment="CENTER" />
+      <TilePane layoutX="692.0" layoutY="431.0" prefHeight="229.0" prefWidth="217.0">
+         <children>
+            <ImageView fitHeight="228.0" fitWidth="563.0" pickOnBounds="true" preserveRatio="true" TilePane.alignment="CENTER">
+               <image>
+                  <Image url="@../../Images/TemplateImages/01-512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </TilePane>
+      <Label alignment="CENTER" graphicTextGap="20.0" layoutX="721.0" layoutY="660.0" prefHeight="37.0" prefWidth="170.0" text="Audio/Visual" textAlignment="CENTER" />
+   </children>
+</Pane>

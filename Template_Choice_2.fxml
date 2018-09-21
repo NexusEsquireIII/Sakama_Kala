@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="833.0" prefWidth="1052.0">
+         <children>
+            <TilePane layoutX="45.0" layoutY="127.0" prefHeight="229.0" prefWidth="228.0">
+               <children>
+                  <ImageView fitHeight="436.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" TilePane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../Images/TemplateImages/film-camera-alt-512.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </TilePane>
+            <Label alignment="CENTER" graphicTextGap="20.0" layoutX="150.0" layoutY="506.0" prefHeight="37.0" prefWidth="170.0" text="Film" textAlignment="CENTER" />
+            <TabPane layoutX="441.0" layoutY="127.0" prefHeight="680.0" prefWidth="596.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Storyboard Information">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField layoutX="35.0" layoutY="40.0" prefHeight="39.0" prefWidth="528.0" />
+                              <TextField layoutX="35.0" layoutY="123.0" prefHeight="39.0" prefWidth="528.0" />
+                              <TextField layoutX="34.0" layoutY="212.0" prefHeight="39.0" prefWidth="528.0" />
+                              <TextArea layoutX="34.0" layoutY="290.0" prefHeight="123.0" prefWidth="528.0" />
+                              <TextArea layoutX="34.0" layoutY="436.0" prefHeight="123.0" prefWidth="528.0" />
+                              <Button layoutX="169.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Submit" />
+                              <Button layoutX="298.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Reset" />
+                              <Button layoutX="430.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Return" />
+                              <Label layoutX="35.0" layoutY="96.0" prefHeight="27.0" prefWidth="150.0" text="Writer" />
+                              <Label layoutX="35.0" layoutY="14.0" prefHeight="27.0" prefWidth="150.0" text="Title/ StoryName" />
+                              <Label layoutX="35.0" layoutY="185.0" prefHeight="27.0" prefWidth="150.0" text="Based On" />
+                              <Label layoutX="35.0" layoutY="413.0" prefHeight="27.0" prefWidth="170.0" text="Contact Information" />
+                              <Label layoutX="35.0" layoutY="263.0" prefHeight="27.0" prefWidth="150.0" text="Copyright" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Template Information">
+                  <content>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="21.0" prefHeight="27.0" prefWidth="111.0" text="File Format" />
+                                    <CheckBox layoutX="91.0" layoutY="74.0" mnemonicParsing="false" text="35mm Film" />
+                                    <CheckBox layoutX="91.0" layoutY="127.0" mnemonicParsing="false" text="16mm Film" />
+                                    <CheckBox layoutX="91.0" layoutY="187.0" mnemonicParsing="false" text="Super 35mm Film" />
+                                    <CheckBox layoutX="91.0" layoutY="246.0" mnemonicParsing="false" text="Techniscope" />
+                                    <CheckBox layoutX="343.0" layoutY="246.0" mnemonicParsing="false" text="Cinemascope" />
+                                    <CheckBox layoutX="343.0" layoutY="187.0" mnemonicParsing="false" text="IMAX" />
+                                    <CheckBox layoutX="343.0" layoutY="127.0" mnemonicParsing="false" text="Super 8 Film" />
+                                    <CheckBox layoutX="343.0" layoutY="74.0" mnemonicParsing="false" text="70mm Film" />
+                                    <Button layoutX="307.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Reset" />
+                                    <Button layoutX="178.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Submit" />
+                                    <Button layoutX="438.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Return" />
+                                    <TextField layoutX="70.0" layoutY="379.0" />
+                                    <TextField layoutX="70.0" layoutY="445.0" />
+                                    <Label layoutX="14.0" layoutY="345.0" prefHeight="27.0" prefWidth="111.0" text="Framerate:" />
+                                    <Label layoutX="14.0" layoutY="418.0" prefHeight="27.0" prefWidth="111.0" text="Timescale:" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
+                  </content>
+                </Tab>
+                  <Tab text="Asset Choice">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="462.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Return" />
+                              <Button layoutX="335.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Reset" />
+                              <Button layoutX="205.0" layoutY="582.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="113.0" text="Submit" />
+                              <TextField layoutX="61.0" layoutY="54.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="23.0" layoutY="14.0" text="Characters" />
+                              <Label layoutX="21.0" layoutY="60.0" text="Men:" />
+                              <Label layoutX="161.0" layoutY="60.0" text="Women:" />
+                              <TextField layoutX="228.0" layoutY="54.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="335.0" layoutY="60.0" text="Boy:" />
+                              <Label layoutX="476.0" layoutY="60.0" text="Girl:" />
+                              <TextField layoutX="369.0" layoutY="54.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="508.0" layoutY="54.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="508.0" layoutY="100.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="369.0" layoutY="100.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="473.0" layoutY="106.0" text="Pets:" />
+                              <Label layoutX="318.0" layoutY="106.0" text="Insect:" />
+                              <TextField layoutX="228.0" layoutY="100.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="161.0" layoutY="106.0" text="Birds:" />
+                              <Label layoutX="21.0" layoutY="106.0" text="Quadraped">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="61.0" layoutY="100.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="385.0" layoutY="201.0" text="Rural Area:" />
+                              <TextField layoutX="474.0" layoutY="195.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="6.0" layoutY="204.0" text="Vegetation:" />
+                              <TextField layoutX="474.0" layoutY="241.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="287.0" layoutY="245.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="107.0" layoutY="244.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="107.0" layoutY="198.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="287.0" layoutY="199.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="413.0" layoutY="247.0" text="Office:" />
+                              <Label layoutX="194.0" layoutY="204.0" text="Urban Area:" />
+                              <Label layoutX="23.0" layoutY="158.0" text="Background" />
+                              <Label layoutX="220.0" layoutY="250.0" text="Chroma:" />
+                              <Label layoutX="6.0" layoutY="250.0" text="Indoor:" />
+                              <Label layoutX="52.0" layoutY="393.0" text="Glasses:" />
+                              <Label layoutX="214.0" layoutY="394.0" text="Mechanic:" />
+                              <Label layoutX="31.0" layoutY="301.0" text="Props" />
+                              <Label layoutX="216.0" layoutY="348.0" text="Furniture:" />
+                              <Label layoutX="438.0" layoutY="390.0" text="Food:" />
+                              <TextField layoutX="295.0" layoutY="342.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="115.0" layoutY="341.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="115.0" layoutY="387.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="295.0" layoutY="388.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="482.0" layoutY="384.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="37.0" layoutY="347.0" text="Transport:" />
+                              <TextField layoutX="482.0" layoutY="338.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="415.0" layoutY="344.0" text="Metallic:" />
+                              <TextField layoutX="502.0" layoutY="476.0" prefHeight="39.0" prefWidth="67.0" />
+                              <TextField layoutX="363.0" layoutY="476.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="452.0" layoutY="482.0" text="Night:" />
+                              <Label layoutX="309.0" layoutY="482.0" text="Storm:" />
+                              <TextField layoutX="222.0" layoutY="476.0" prefHeight="39.0" prefWidth="67.0" />
+                              <Label layoutX="155.0" layoutY="482.0" text="Cloudy:" />
+                              <Label layoutX="11.0" layoutY="482.0" text="Rainy:" />
+                              <Label layoutX="17.0" layoutY="436.0" text="Weather/FX" />
+                              <TextField layoutX="55.0" layoutY="476.0" prefHeight="39.0" prefWidth="67.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+   </children>
+</GridPane>
