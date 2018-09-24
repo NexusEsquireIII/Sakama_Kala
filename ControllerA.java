@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
+import application.DragResizeMod.OnDragResizeEventListener;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.geometry.Insets;
@@ -31,6 +32,7 @@ import javafx.stage.Screen;
 
 public class ControllerA implements Initializable {
     
+
 	@FXML
 	private Pane canvas;
     
@@ -75,18 +77,7 @@ public class ControllerA implements Initializable {
      
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-		/*nextScreenButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent e) {
-				Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("application/CreateProfile.fxml"));
-		        primaryStage.setTitle("Main Phase");
-		        primaryStage.setScene(new Scene(root, 800, 500));
-		        
-		        primaryStage.show();
-		        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-		        primaryStage.setX((primScreenBounds.getWidth() - primaryStage.getWidth()) / 2); 
-		        primaryStage.setY((primScreenBounds.getHeight() - primaryStage.getHeight()) / 4);
-			}
-		});*/
+		
 		for (int i =0;i < 20; i++) {
 			canvasImage[i] = new ImageView();
 			canvasImage[i].setFitHeight(50);
@@ -94,71 +85,12 @@ public class ControllerA implements Initializable {
 		}
 		nextButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
-				if(component<20) {
-					canvasImage[component].setOnDragDetected(new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-
-						}
-					});  
-					canvasImage[component].setOnMouseEntered(new EventHandler<MouseEvent>() {
-						   @Override
-						   public void handle(MouseEvent e) {
-						   }
-					});
-					
-					component++;
-					canvasImage[component].setOnDragDetected(new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							Dragboard db = canvasImage[component].startDragAndDrop(TransferMode.MOVE);
-							ClipboardContent content = new ClipboardContent();
-							content.putImage(canvasImage[component].getImage());
-							db.setContent(content);
-							e.consume();
-						}
-					});  
-					canvasImage[component].setOnMouseEntered(new EventHandler<MouseEvent>() {
-						   @Override
-						   public void handle(MouseEvent e) {
-							   canvasImage[component].setCursor(Cursor.HAND);
-							   cursor = (int) e.getSceneX();
-						   }
-					});
-					System.out.println(component);
-				}
+				
 			}
 		});
 		prevButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent e) {
-				if(component > 0) {
-					canvasImage[component].setOnDragDetected(new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-
-						}
-					});  
-					canvasImage[component].setOnMouseEntered(new EventHandler<MouseEvent>() {
-						   @Override
-						   public void handle(MouseEvent e) {
-						   }
-					});
-					component--;
-					canvasImage[component].setOnDragDetected(new EventHandler<MouseEvent>() {
-						public void handle(MouseEvent e) {
-							Dragboard db = canvasImage[component].startDragAndDrop(TransferMode.MOVE);
-							ClipboardContent content = new ClipboardContent();
-							content.putImage(canvasImage[component].getImage());
-							db.setContent(content);
-							e.consume();
-						}
-					});  
-					canvasImage[component].setOnMouseEntered(new EventHandler<MouseEvent>() {
-						   @Override
-						   public void handle(MouseEvent e) {
-							   canvasImage[component].setCursor(Cursor.HAND);
-							   cursor = (int) e.getSceneX();
-						   }
-					});
-					System.out.println(component);
-				}
+				
 			}
 		});
 		String enSql = "SELECT environmentPicture FROM environment";
@@ -201,6 +133,36 @@ public class ControllerA implements Initializable {
 				content.putImage(iv.getImage());
 				db.setContent(content);
 				e.consume();
+				canvas.setOnDragOver(new EventHandler<DragEvent>() {
+					   @Override
+					   public void handle(DragEvent de) {
+						   Dragboard db = de.getDragboard();
+						    if(db.hasImage()) {
+						    	de.acceptTransferModes(TransferMode.MOVE);
+						    }
+						    de.consume();
+					   }
+				});
+			
+				canvas.setOnDragDropped(new EventHandler<DragEvent>() {
+					   @Override
+					   public void handle(DragEvent de) {
+						   Dragboard db = de.getDragboard();
+						   if(db.hasImage()) {
+							   ((ImageView) e.getSource()).setImage(db.getImage());
+							   canvas.getChildren().remove(((ImageView) e.getSource()));
+							   Point2D localPoint = canvas.sceneToLocal(new Point2D(de.getSceneX(), de.getSceneY()));
+							   ((ImageView) e.getSource()).setX((int) (localPoint.getX() - ((ImageView) e.getSource()).getBoundsInLocal().getWidth()/2));
+							   ((ImageView) e.getSource()).setY((int) (localPoint.getY() - ((ImageView) e.getSource()).getBoundsInLocal().getHeight()/2));
+							   dragWithinCanvas(((ImageView) e.getSource()));
+							   canvas.getChildren().add(((ImageView) e.getSource()));
+							   de.setDropCompleted(true);
+						   } else {
+							   de.setDropCompleted(false);
+						   }   
+						   de.consume();
+					   }
+				});
 			}
 		});  
 		iv.setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -291,10 +253,8 @@ public class ControllerA implements Initializable {
 	
 	public void createCharacterPicture(int position, String path) {
 		ImageView iv = new ImageView();
-		iv.setFitWidth(50);
 		iv.setFitHeight(50);
-		//iv.setLayoutX(x);
-		//iv.setLayoutY(y);
+		iv.setFitWidth(50);
 		try {
     		FileInputStream inputStream = new FileInputStream(path);
  		   	img = new Image(inputStream); 
@@ -315,6 +275,38 @@ public class ControllerA implements Initializable {
 				content.putImage(iv.getImage());
 				db.setContent(content);
 				e.consume();
+				canvas.setOnDragOver(new EventHandler<DragEvent>() {
+					   @Override
+					   public void handle(DragEvent de) {
+						   Dragboard db = de.getDragboard();
+						    if(db.hasImage()) {
+						    	de.acceptTransferModes(TransferMode.MOVE);
+						    }
+						    de.consume();
+					   }
+				});
+			
+				canvas.setOnDragDropped(new EventHandler<DragEvent>() {
+					   @Override
+					   public void handle(DragEvent de) {
+						   Dragboard db = de.getDragboard();
+						   if(db.hasImage()) {
+							   canvasImage[component].setImage(db.getImage());
+							   canvas.getChildren().remove(canvasImage[component]);
+							   Point2D localPoint = canvas.sceneToLocal(new Point2D(de.getSceneX(), de.getSceneY()));
+							   canvasImage[component].setX((int) (localPoint.getX() - canvasImage[component].getBoundsInLocal().getWidth()/2));
+							   canvasImage[component].setY((int) (localPoint.getY() - canvasImage[component].getBoundsInLocal().getHeight()/2));
+							   canvas.getChildren().add(canvasImage[component]);
+							   dragWithinCanvas(canvasImage[component]);
+							   //DragResizeMod.makeResizable(canvasImage[component]);
+							   de.setDropCompleted(true);
+						   } else {
+							   de.setDropCompleted(false);
+						   }   
+						   de.consume();
+					   }
+				});
+				component++;
 			}
 		});  
 		iv.setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -324,36 +316,6 @@ public class ControllerA implements Initializable {
 				   cursor = (int) e.getSceneX();
 			   }
 		});
-			canvas.setOnDragOver(new EventHandler<DragEvent>() {
-				   @Override
-				   public void handle(DragEvent de) {
-					   Dragboard db = de.getDragboard();
-					    if(db.hasImage()) {
-					    	de.acceptTransferModes(TransferMode.MOVE);
-					    }
-					    de.consume();
-				   }
-			});
-		
-			canvas.setOnDragDropped(new EventHandler<DragEvent>() {
-				   @Override
-				   public void handle(DragEvent de) {
-					   Dragboard db = de.getDragboard();
-					   if(db.hasImage()) {
-						   canvasImage[component].setImage(db.getImage());
-						   canvas.getChildren().remove(canvasImage[component]);
-						   Point2D localPoint = canvas.sceneToLocal(new Point2D(de.getSceneX(), de.getSceneY()));
-						   canvasImage[component].setX((int) (localPoint.getX() - canvasImage[component].getBoundsInLocal().getWidth()/2));
-						   canvasImage[component].setY((int) (localPoint.getY() - canvasImage[component].getBoundsInLocal().getHeight()/2));
-						   dragWithinCanvas(canvasImage[component]);
-						   canvas.getChildren().add(canvasImage[component]);
-						   de.setDropCompleted(true);
-					   } else {
-						   de.setDropCompleted(false);
-					   }   
-					   de.consume();
-				   }
-			});
 		
 	}
 }
